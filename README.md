@@ -206,7 +206,7 @@ Additionally, you’ll need to complete the following tasks in each of these fro
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://mern-book-search-lorber.herokuapp.com/)
 
-## Technologies Used
+## Technologies Used 
   <img src="https://img.shields.io/badge/-React-black" />
   <img src="https://img.shields.io/badge/-JavaScript-yellow" />
   <img src="https://img.shields.io/badge/-GitHub-teal" />
