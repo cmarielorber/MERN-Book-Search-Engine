@@ -2,7 +2,7 @@
 
 Week #21 MERN Challenge
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://mern-lorber.herokuapp.com/)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://mern-book-search-lorber.herokuapp.com/)
 
 ## License
 
@@ -204,7 +204,7 @@ Additionally, you’ll need to complete the following tasks in each of these fro
 
 ## Link
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://mern-lorber.herokuapp.com/)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://mern-book-search-lorber.herokuapp.com/)
 
 ## Technologies Used
   <img src="https://img.shields.io/badge/-React-black" />
