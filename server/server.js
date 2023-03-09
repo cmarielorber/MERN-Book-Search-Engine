@@ -24,8 +24,20 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-// Apply Apollo Server with Express App
-server.applyMiddleware({ app });
+
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  // Apply Apollo Server with Express App
+  server.applyMiddleware({ app });
+  
+  db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    })
+  })
+  };
+
 
 // Middleware Parsing
 app.use(express.urlencoded({ extended: true }));
@@ -42,9 +54,6 @@ if (process.env.NODE_ENV === 'production') {
 
 // app.use(routes);
 
-db.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-});
+  
+// Call the async function to start the server
+startApolloServer(typeDefs, resolvers);
