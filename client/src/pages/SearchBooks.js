@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
-
+import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 // import { saveBook, searchGoogleBooks } from '../utils/API';
 import { searchGoogleBooks } from '../utils/API';
@@ -71,11 +71,12 @@ const [saveBook] = useMutation(SAVE_BOOK)
     try {
       await saveBook({
         variables: {book: bookToSave},
-        // update: cache => {
-        //   const {me} = cache.readQuery({ query: GET_ME});
-        //   // console.log(me.savedBooks)
-        //   cache.writeQuery({ query: GET_ME , data: {me: { ...me, savedBooks: [...me.savedBooks, bookToSave] } } })
-        // }
+        update: cache => {
+          const {me} = cache.readQuery({ query: GET_ME });
+          // console.log(me)
+          // console.log(me.savedBooks)
+          cache.writeQuery({ query: GET_ME , data: {me: { ...me, savedBooks: [...me.savedBooks, bookToSave] } } })
+        }
       });
     
 
